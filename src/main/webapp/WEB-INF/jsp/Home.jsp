@@ -11,7 +11,7 @@
     <body>
 
     <h1>User Page</h1>
-    <p>Here goes information about the usern</p>
+    <p>Here goes information about the user</p>
 
     <table border="1px gray">
         <thead>
