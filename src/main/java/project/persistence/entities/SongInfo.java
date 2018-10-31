@@ -70,5 +70,4 @@ public class SongInfo {
 		this.pathToFile = pathToFile;
 	}
 	
-	
 }
