@@ -54,5 +54,4 @@ public class Song {
 	public void setSongInfo(SongInfo songInfo) {
 		this.songInfo = songInfo;
 	}
-	
 }

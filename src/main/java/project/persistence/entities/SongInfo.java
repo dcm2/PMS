@@ -68,6 +68,5 @@ public class SongInfo {
 
 	public void setPathToFile(String pathToFile) {
 		this.pathToFile = pathToFile;
-	}
-	
+	}	
 }
