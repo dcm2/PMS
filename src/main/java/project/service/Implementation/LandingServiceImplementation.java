@@ -1,7 +1,34 @@
 package project.service.Implementation;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import project.persistence.entities.User;
+import project.persistence.repositories.UserRepository;
 import project.service.*;
 
+@Service
 public class LandingServiceImplementation implements LandingService {
+
+	// Instance Variable
+	UserRepository userRepo;
+	
+	// Dependency Injection
+	@Autowired
+	public LandingServiceImplementation(UserRepository userRepo) {
+		this.userRepo = userRepo;
+	}
+	
+/* IMPLEMENTATION OF METHODS IN THE LandingService INTERFACE*/
+	
+	@Override
+	public User save(User user) {
+		return userRepo.save(user);
+	}
+
+	@Override
+	public void delete(User user) {
+		userRepo.delete(user);	
+	}
 
 }

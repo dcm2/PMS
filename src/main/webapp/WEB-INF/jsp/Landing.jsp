@@ -2,6 +2,7 @@
 
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 
 <html lang="en">
 
@@ -10,21 +11,14 @@
     </head>   
     <body>
 	<h1>WELCOME TO PMS</h1>
-	
 
-    <h2>SIGN IN here:</h2>   
-    <form action="/home" method="get">
-    		<input type="text" name="user" />
-    		<input type="text" name="password" />
-    		<input type="submit" value="OK" />    
-    </form>
-      
-	<h2>You can SIGN UP here:</h2> 
-    <form action="/home" method="get">
-    		<input type="text" name="username" />
-    		<input type="text" name="email" />
-    		<input type="text" name="password" />
-    		<input type="submit" value="OK" />    
-    </form> 
-    </body>
+    <%-- modelAttribute userInfo is added to the model in landingView() method from LandingController --%>
+    <sf:form method="POST" modelAttribute="userInfo" action="/home">  	   
+		<sf:input path="userName" type="text" placeholder="username"/>
+		<sf:input path="password" type="text" placeholder="password"/>
+		<input type="submit" VALUE="Log In"/>		
+    </sf:form>
+
+	<p> If you are not registered <a href="/newAccount">CREATE A NEW ACCOUNT HERE</a></p>
+
 </html>

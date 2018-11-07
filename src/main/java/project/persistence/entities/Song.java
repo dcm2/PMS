@@ -1,4 +1,4 @@
-package project.persistence.entities;
+/*package project.persistence.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -54,4 +54,4 @@ public class Song {
 	public void setSongInfo(SongInfo songInfo) {
 		this.songInfo = songInfo;
 	}
-}
+}*/

@@ -1,10 +1,12 @@
-package project.persistence.entities;
+/*package project.persistence.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class SongInfo {
 	
+	@Id
 	private Long id;
 	
 	private String title;
@@ -69,4 +71,4 @@ public class SongInfo {
 	public void setPathToFile(String pathToFile) {
 		this.pathToFile = pathToFile;
 	}	
-}
+}*/

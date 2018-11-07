@@ -4,7 +4,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 
-import java.util.ArrayList;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,10 +18,10 @@ public class Playlist {
 	
 	private String title;
 	private User creator;
-	private ArrayList<Song> songList;
+	private char[] songList;
 	private	int numSongs;
 	private int duration;
-	private ArrayList<User> members;
+	private char[] members;
 	
 	// The empty constructor is not needed, we will always want to create Playlists with
 	// a title and the user that creates it
@@ -47,12 +46,14 @@ public class Playlist {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public ArrayList<Song> getSongList() {
+	public char[] getSongList() {
 		return songList;
 	}
-	public void setSongList(ArrayList<Song> songList) {
+
+	public void setSongList(char[] songList) {
 		this.songList = songList;
 	}
+
 	public int getNumSongs() {
 		return numSongs;
 	}
@@ -65,13 +66,14 @@ public class Playlist {
 	public void setDuration(int duration) {
 		this.duration = duration;
 	}
-	public ArrayList<User> getMembers() {
+	public char[] getMembers() {
 		return members;
 	}
-	public void setMembers(ArrayList<User> members) {
+
+	public void setMembers(char[] members) {
 		this.members = members;
 	}
-	
+
 	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	@JoinColumn(name = "UserID")
 	public User getCreator() {

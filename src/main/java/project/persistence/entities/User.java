@@ -9,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -19,9 +18,9 @@ public class User {
 	private Long id;
 	
 	private String userName;
-	private String pw;
+	private String password;
 	private String email;
-	private ArrayList<Playlist> playlists;
+	private char[] playlists;
 	private Set<Playlist> createdPlaylists = new HashSet<>();
 	
     // Empty constructor: because we need to be able to create an empty User to add
@@ -29,9 +28,9 @@ public class User {
     public User() {
     }
 	
-    public User(String userName, String pw) {
+    public User(String userName, String password) {
         this.userName = userName;
-        this.pw = pw;
+        this.password = password;
     }
     
     // Getters & setters
@@ -50,11 +49,11 @@ public class User {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	public String getPw() {
-		return pw;
+	public String getPassword() {
+		return password;
 	}
-	public void setPw(String pw) {
-		this.pw = pw;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	public String getEmail() {
 		return email;
@@ -62,19 +61,20 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public ArrayList<Playlist> getPlaylists() {
+    public char[] getPlaylists() {
 		return playlists;
 	}
-	public void setPlaylists(ArrayList<Playlist> playlists) {
+
+	public void setPlaylists(char[] playlists) {
 		this.playlists = playlists;
 	}
-	
-    // This is for easier debug 
+
+	// This is for easier debug 
     @Override
     public String toString() {
         return String.format(
                 "User[userName=%s, pw=%s]",
-                userName,pw);
+                userName,password);
     }
 	
     // This handles the one-to-many relationship with the playlist
