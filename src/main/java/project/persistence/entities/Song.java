@@ -1,5 +1,6 @@
-/*package project.persistence.entities;
+package project.persistence.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,12 +17,13 @@ public class Song {
 	private SongInfo songInfo;
 	
 	// Constructor
-	public Song(SongInfo songInfo) {
-		this.setSongInfo(songInfo);
+	public Song() {
+		
 	}
 	
 	// Getters and setters
 	@Id
+	//@Column(name = songInfo)
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	public int getVotes() {
 		return votes;
@@ -54,4 +56,4 @@ public class Song {
 	public void setSongInfo(SongInfo songInfo) {
 		this.songInfo = songInfo;
 	}
-}*/
+}
