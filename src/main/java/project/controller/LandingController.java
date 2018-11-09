@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import beans.UserInfo;
 import project.persistence.entities.User;
 import project.service.LandingService;
 
@@ -30,9 +31,9 @@ public class LandingController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
     public String landingView(Model model){ 
-		
+			
 		// Adds an attribute to the model with name userInfo
-    	model.addAttribute("userInfo", new User());
+    	model.addAttribute("userInfo", new UserInfo());
     	
         return "Landing";
     }
