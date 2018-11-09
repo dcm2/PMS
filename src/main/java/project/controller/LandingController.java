@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import beans.UserInfo;
+import project.beans.UserInfo;
 import project.persistence.entities.User;
 import project.service.LandingService;
 

@@ -1,4 +1,4 @@
-package beans;
+package project.beans;
 
 public class UserInfo {
 	
