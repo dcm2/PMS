@@ -17,8 +17,8 @@ public class Song {
 	private SongInfo songInfo;
 	
 	// Constructor
-	public Song() {
-		
+	public Song(SongInfo songInfo) {
+		this.songInfo = songInfo;
 	}
 	
 	// Getters and setters

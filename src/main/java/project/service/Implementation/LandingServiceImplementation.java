@@ -3,6 +3,7 @@ package project.service.Implementation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import project.persistence.entities.User;
 import project.persistence.repositories.UserRepository;
 import project.service.*;
@@ -30,5 +31,10 @@ public class LandingServiceImplementation implements LandingService {
 	public void delete(User user) {
 		userRepo.delete(user);	
 	}
-
+	
+	@Override
+	public List<User> findAll() {
+		return userRepo.findAll();
+	}
+	
 }
