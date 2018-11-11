@@ -25,5 +25,4 @@ public interface LandingService {
      */
 	List<User> findAll();
 	
-	
 }
