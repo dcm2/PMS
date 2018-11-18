@@ -49,4 +49,6 @@ public class LandingServiceImplementation implements LandingService {
 		
 		return true;		
 	}
+	
+	
 }
