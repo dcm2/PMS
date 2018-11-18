@@ -41,12 +41,23 @@ public class LandingServiceImplementation implements LandingService {
 	public boolean isUserInDB(String name) {
 		
 		User prospect = new User();
-		prospect = userRepo.findByName(name);
+		prospect = userRepo.findUserByName(name);
 		
 		if (prospect == null) {
 			return false;
 		}
 		
 		return true;		
+	}
+	
+	@Override
+	public boolean verification(User user) {
+		User prospect = new User();
+		prospect = userRepo.findUserById(user.getId());
+		
+		if (prospect == null) {
+			return true;
+		}
+		return false;
 	}
 }
