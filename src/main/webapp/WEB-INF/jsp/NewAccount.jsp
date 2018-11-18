@@ -17,7 +17,7 @@
     	<sf:errors path="userName" class="error"></sf:errors><br/>
 		<sf:input path="userName" type="text" placeholder="username"/><br/>
 		<sf:errors path="password" class="error"></sf:errors><br/>
-		<sf:input path="password" type="text" placeholder="password"/><br/>
+		<sf:input path="password" type="password" placeholder="password"/><br/>
 		<sf:errors path="email" class="error"></sf:errors><br/>
 		<sf:input path="email" type="text" placeholder="email"/><br/>
 		<input type="submit" VALUE="Sign Up"/>
