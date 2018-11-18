@@ -52,8 +52,6 @@ public class LandingController {
     	
     	System.out.println(landingService.isUserInDB(name));
     	
-    	System.out.println(landingService.verification(userInfo));
-    	
     	return "Home"; 	
     }   
 }

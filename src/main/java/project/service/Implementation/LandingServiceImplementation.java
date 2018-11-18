@@ -41,7 +41,7 @@ public class LandingServiceImplementation implements LandingService {
 	public boolean isUserInDB(String name) {
 		
 		User prospect = new User();
-		prospect = userRepo.findUserByName(name);
+		prospect = userRepo.findByName(name);
 		
 		if (prospect == null) {
 			return false;
@@ -50,14 +50,5 @@ public class LandingServiceImplementation implements LandingService {
 		return true;		
 	}
 	
-	@Override
-	public boolean verification(User user) {
-		User prospect = new User();
-		prospect = userRepo.findUserById(user.getId());
-		
-		if (prospect == null) {
-			return true;
-		}
-		return false;
-	}
+	
 }

@@ -27,7 +27,5 @@ public interface LandingService {
 	
 	//testin' :)
 	boolean isUserInDB(String name);
-
-	boolean verification(User user);
 	
 }
