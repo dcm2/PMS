@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
+import project.beans.UserInfo;
 import project.persistence.entities.User;
 import project.persistence.repositories.UserRepository;
 import project.service.*;
@@ -33,11 +35,6 @@ public class LandingServiceImplementation implements LandingService {
 	}
 	
 	@Override
-	public List<User> findAll() {
-		return userRepo.findAll();
-	}
-	
-	@Override
 	public boolean isUserInDB(String name) {
 		
 		User prospect = new User();
@@ -48,6 +45,20 @@ public class LandingServiceImplementation implements LandingService {
 		}
 		
 		return true;		
+	}
+	
+	@Override
+	public boolean verification(UserInfo userInfo) {
+		
+		String prospectiveUserName = userInfo.getUserName();
+		String prospectivePw = userInfo.getPassword();
+		
+		if(isUserInDB(prospectiveUserName)){ 
+			String pwInDB = userRepo.findUserPw(prospectiveUserName);
+			return prospectivePw.equals(pwInDB);
+		}
+		
+		return false;
 	}
 	
 	

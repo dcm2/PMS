@@ -8,7 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import java.util.Arrays;
@@ -20,11 +22,20 @@ public class User {
 	
 	private Long id;
 	
-	@NotNull
-	@Size(min=5, max= 20, message="Name must be between 5 and 20 characters")
+	@NotNull(message="Username cannot be empty")
+	@Size(min=5, max= 20, message="Username must be between 8 and 20 characters long")
+	@Pattern(regexp="^\\w{5,}$", message = "Username can only consist of alphanumeric characters")
 	private String userName;
+	
+	@NotNull(message="Password cannot be empty")
+	@Pattern(regexp="\\S+", message="Your password cannot contain blank spaces")
+	@Size(min=8, max=15, message="Password must be between 8 and 20 characters long")
 	private String password;
+	
+	@Email(message = "Please enter a valid email")
 	private String email;
+	
+	
 	private char[] playlists;
 	private Set<Playlist> createdPlaylists = new HashSet<>();
 	

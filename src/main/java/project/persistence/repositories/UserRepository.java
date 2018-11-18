@@ -12,12 +12,14 @@ public interface UserRepository extends JpaRepository<User, Long>{
 	
 	void delete(User user);
 	
-	List<User> findAll();
 	
 	// To look for a user by its name
 	@Query(value= "SELECT p FROM User p WHERE p.userName = ?1")
 	User findByName(String userName);
 	
+	// To find the password of a particular user
+	@Query(value= "SELECT p.password FROM User p WHERE p.userName = ?1")
+	String findUserPw(String userName);
 	
 	
 	

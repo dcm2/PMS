@@ -7,15 +7,18 @@
 <html lang="en">
 
     <head>
-        <title>PSM</title>
+    	<link rel="stylesheet" href="<c:url value="/css/main.css" />">
+        <title>PMS</title>
     </head>   
     <body>
 	<h1>WELCOME TO PMS</h1>
 
     <%-- modelAttribute userInfo is added to the model in landingView() method from LandingController --%>
-    <sf:form method="POST" modelAttribute="userInfo" action="/userPage">  	   
-		<sf:input path="userName" type="text" placeholder="username"/>
-		<sf:input path="password" type="text" placeholder="password"/>
+    <sf:form method="POST" modelAttribute="userInfo" action="/userPage"> 
+     	<sf:errors path="userName" class="error"></sf:errors><br/>   
+		<sf:input path="userName" type="text" placeholder="username"/><br/>
+		<sf:errors path="password" class="error"></sf:errors><br/>
+		<sf:input path="password" type="text" placeholder="password"/><br/>
 		<input type="submit" VALUE="Log In"/>		
     </sf:form>
 

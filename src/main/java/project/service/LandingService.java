@@ -3,6 +3,7 @@ package project.service;
 import java.util.List;
 
 import project.persistence.entities.User;
+import project.beans.UserInfo;
 
 public interface LandingService {
 
@@ -19,13 +20,11 @@ public interface LandingService {
      */
 	void delete(User user);
 	
-	/**
-     * Get all {@link User}s
-     * @return A list of {@link User}s
-     */
-	List<User> findAll();
 	
-	//testin' :)
+	//add better comments :)
 	boolean isUserInDB(String name);
 	
+	//add a better comments :)
+	boolean verification(UserInfo userInfo);
+
 }

@@ -1,8 +1,11 @@
 package project.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -44,13 +47,20 @@ public class LandingController {
 	 */ 
 
     @RequestMapping(value= "/userPage", method=RequestMethod.POST)
-    public String logInPost(@ModelAttribute("userInfo") User userInfo, Model model) {
+    public String logInPost(@ModelAttribute("userInfo") @Valid UserInfo userInfo,BindingResult result, Model model) {
 
-    	// methods to implement
-    	String name = userInfo.getUserName();
-    	System.out.println("The name to check is: " + name);
+    	if(result.hasErrors()) {
+    		System.out.println("Form does not validate");
+    		return "Landing";
+    	} else {
+    		System.out.println("Form is valid and ready to check in the db info from UserInfo bean");
+    	}   	
     	
-    	System.out.println(landingService.isUserInDB(name));
+
+    	//burn after usign
+    	System.out.println(landingService.verification(userInfo));
+    	
+    	
     	
     	return "UserPage"; 	
     } 
