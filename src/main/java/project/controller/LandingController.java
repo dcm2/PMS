@@ -56,12 +56,11 @@ public class LandingController {
     		System.out.println("Form is valid and ready to check in the db info from UserInfo bean");
     	}   	
     	
-
     	//burn after usign
     	System.out.println(landingService.verification(userInfo));
     	
-    	
-    	
+    	if(!landingService.verification(userInfo)){ return "ErrorNoAccount"; } 	
+
     	return "UserPage"; 	
     } 
    
