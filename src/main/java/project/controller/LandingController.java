@@ -43,7 +43,7 @@ public class LandingController {
 	 * the attribute userInfo is the attribute that is mapped to the LOG IN form (see: Landing.jsp)
 	 */ 
 
-    @RequestMapping(value="/home", method=RequestMethod.POST)
+    @RequestMapping(value= "/userPage", method=RequestMethod.POST)
     public String logInPost(@ModelAttribute("userInfo") User userInfo, Model model) {
 
     	// methods to implement
@@ -52,6 +52,8 @@ public class LandingController {
     	
     	System.out.println(landingService.isUserInDB(name));
     	
-    	return "Home"; 	
-    }   
+    	return "UserPage"; 	
+    } 
+   
+    
 }

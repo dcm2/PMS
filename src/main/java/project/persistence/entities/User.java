@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -18,6 +20,8 @@ public class User {
 	
 	private Long id;
 	
+	@NotNull
+	@Size(min=5, max= 20, message="Name must be between 5 and 20 characters")
 	private String userName;
 	private String password;
 	private String email;

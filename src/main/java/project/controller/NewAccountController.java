@@ -1,8 +1,11 @@
 package project.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -41,8 +44,17 @@ public class NewAccountController {
 	 * the attribute newUserInfo is the attribute that is mapped to the SIGN UP form (see: NewAccount.jsp)
 	 */ 
 
-    @RequestMapping(value="/UserPage", method=RequestMethod.POST)
-    public String signUpPost(@ModelAttribute("newUserInfo") User newUserInfo, Model model) {
+    @RequestMapping(value="/newUserPage", method=RequestMethod.POST)
+    public String signUpPost(@ModelAttribute("newUserInfo") @Valid User newUserInfo, BindingResult result, Model model) {
+    	
+    	if(result.hasErrors()) {
+    		System.out.println("Form does not validate");
+    		return "NewAccount";
+    	} else {
+    		System.out.println("Form is valid");
+    	}
+
+    	
     	
     	// saves the User from newUserInfo in the db 
     	//model.addAttribute("newUserInfo", new User());
@@ -51,6 +63,6 @@ public class NewAccountController {
 		
 		System.out.println(newUserInfo.toString());
 		
-    	return "UserPage"; 	
+    	return "NewUserPage"; 	
     }
 }

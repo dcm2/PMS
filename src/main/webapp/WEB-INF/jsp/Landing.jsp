@@ -13,7 +13,7 @@
 	<h1>WELCOME TO PMS</h1>
 
     <%-- modelAttribute userInfo is added to the model in landingView() method from LandingController --%>
-    <sf:form method="POST" modelAttribute="userInfo" action="/home">  	   
+    <sf:form method="POST" modelAttribute="userInfo" action="/userPage">  	   
 		<sf:input path="userName" type="text" placeholder="username"/>
 		<sf:input path="password" type="text" placeholder="password"/>
 		<input type="submit" VALUE="Log In"/>		
