@@ -31,7 +31,7 @@ public class NewAccountController {
     public String newAccountView(Model model) {
     	
     	// Adds an attribute to the model with name newUserInfo
-    	model.addAttribute("newUserInfo",new User());
+    	model.addAttribute("newUserInfo", new User());
     	
 		return "NewAccount";
     }
@@ -41,12 +41,16 @@ public class NewAccountController {
 	 * the attribute newUserInfo is the attribute that is mapped to the SIGN UP form (see: NewAccount.jsp)
 	 */ 
 
-    @RequestMapping(value="/playlist", method=RequestMethod.POST)
+    @RequestMapping(value="/UserPage", method=RequestMethod.POST)
     public String signUpPost(@ModelAttribute("newUserInfo") User newUserInfo, Model model) {
     	
     	// saves the User from newUserInfo in the db 
+    	//model.addAttribute("newUserInfo", new User());
+    	
 		landingService.save(newUserInfo);
 		
-    	return "Playlist"; 	
+		System.out.println(newUserInfo.toString());
+		
+    	return "UserPage"; 	
     }
 }

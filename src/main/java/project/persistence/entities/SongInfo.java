@@ -1,10 +1,17 @@
-package project.persistence.entities;
+/*package project.persistence.entities;
 
-import javax.persistence.Embeddable;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
-@Embeddable
+@Entity
 public class SongInfo {
 	
 	private Long id;
@@ -14,15 +21,26 @@ public class SongInfo {
 	private int length;
 	private String album;
 	private String genre;
-	private String pathToFile;
+	private List<Song> usedBySong;
 	
 	// Constructor
-	public SongInfo(String title, String artist, int length, String genre) {
-		this.setTitle(title);
-		this.setArtist(artist);
-		this.setLength(length);
-		this.setGenre(genre);
+	public SongInfo(String title, String artist, int length, String album, String genre) {
+		this.title = title;
+		this.artist = artist;
+		this.length = length;
+		this.album = album;
+		this.genre = genre;
 	}
+
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "songInfoID")
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}	
 	
 	public String getTitle() {
 		return title;
@@ -64,11 +82,13 @@ public class SongInfo {
 		this.genre = genre;
 	}
 
-	public String getPathToFile() {
-		return pathToFile;
+	@OneToMany(mappedBy = "songInfo", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	public List<Song> getUsedBySong() {
+		return usedBySong;
 	}
 
-	public void setPathToFile(String pathToFile) {
-		this.pathToFile = pathToFile;
-	}	
-}
+	public void setUsedBySong(List<Song> usedBySong) {
+		this.usedBySong = usedBySong;
+	}
+	
+}*/

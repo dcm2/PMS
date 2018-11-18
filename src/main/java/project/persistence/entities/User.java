@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -68,14 +69,6 @@ public class User {
 	public void setPlaylists(char[] playlists) {
 		this.playlists = playlists;
 	}
-
-	// This is for easier debug 
-    @Override
-    public String toString() {
-        return String.format(
-                "User[userName=%s, pw=%s]",
-                userName,password);
-    }
 	
     // This handles the one-to-many relationship with the playlist
     
@@ -87,5 +80,14 @@ public class User {
 	public void setCreatedPlaylists(Set<Playlist> createdPlaylists) {
 		this.createdPlaylists = createdPlaylists;
 	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", userName=" + userName + ", password=" + password + ", email=" + email
+				+ ", playlists=" + Arrays.toString(playlists) + ", createdPlaylists=" + createdPlaylists + "]";
+	}
+	
+	
+	
 	
 }

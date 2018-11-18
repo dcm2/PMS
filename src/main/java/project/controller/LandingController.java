@@ -47,6 +47,10 @@ public class LandingController {
     public String logInPost(@ModelAttribute("userInfo") User userInfo, Model model) {
 
     	// methods to implement
+    	String name = userInfo.getUserName();
+    	System.out.println("The name to check is: " + name);
+    	
+    	System.out.println(landingService.isUserInDB(name));
     	
     	return "Home"; 	
     }   

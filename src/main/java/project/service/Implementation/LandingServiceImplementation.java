@@ -37,4 +37,16 @@ public class LandingServiceImplementation implements LandingService {
 		return userRepo.findAll();
 	}
 	
+	@Override
+	public boolean isUserInDB(String name) {
+		
+		User prospect = new User();
+		prospect = userRepo.findByName(name);
+		
+		if (prospect == null) {
+			return false;
+		}
+		
+		return true;		
+	}
 }

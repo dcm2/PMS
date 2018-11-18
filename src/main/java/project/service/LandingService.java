@@ -25,4 +25,7 @@ public interface LandingService {
      */
 	List<User> findAll();
 	
+	//testin' :)
+	boolean isUserInDB(String name);
+	
 }
