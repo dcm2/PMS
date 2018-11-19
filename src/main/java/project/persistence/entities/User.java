@@ -1,5 +1,6 @@
 package project.persistence.entities;
 
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,13 +14,16 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+
 
 @Entity
 public class User {
 	
+	@Id
+	@Column(name = "UserID")
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id;
 	
 	@NotNull(message="Username cannot be empty")
@@ -36,8 +40,9 @@ public class User {
 	private String email;
 	
 	
-	private char[] playlists;
-	private Set<Playlist> createdPlaylists = new HashSet<>();
+	@OneToMany(mappedBy = "creator", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true) 
+	private Set<Playlist> playlists = new HashSet<>();
+	
 	
     // Empty constructor: because we need to be able to create an empty User to add
     // to our model so we can use it with our form
@@ -50,9 +55,6 @@ public class User {
     }
     
     // Getters & setters
-	@Id
-	@Column(name = "UserID")
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	public Long getId() {
 		return id;
 	}
@@ -77,32 +79,19 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-    public char[] getPlaylists() {
+	public Set<Playlist> getPlaylists() {
 		return playlists;
 	}
 
-	public void setPlaylists(char[] playlists) {
+	public void setPlaylists(Set<Playlist> playlists) {
 		this.playlists = playlists;
 	}
-	
-    // This handles the one-to-many relationship with the playlist
-    
-    @OneToMany(mappedBy = "creator", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true) 
-	public Set<Playlist> getCreatedPlaylists() {
-		return createdPlaylists;
-	}
 
-	public void setCreatedPlaylists(Set<Playlist> createdPlaylists) {
-		this.createdPlaylists = createdPlaylists;
-	}
-
+	//for debugging purposes
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", userName=" + userName + ", password=" + password + ", email=" + email
-				+ ", playlists=" + Arrays.toString(playlists) + ", createdPlaylists=" + createdPlaylists + "]";
+				+ ", playlists=" + playlists + "]";
 	}
-	
-	
-	
-	
+
 }

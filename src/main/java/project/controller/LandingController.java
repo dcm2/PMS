@@ -59,7 +59,9 @@ public class LandingController {
     	//burn after usign
     	System.out.println(landingService.verification(userInfo));
     	
-    	if(!landingService.verification(userInfo)){ return "ErrorNoAccount"; } 	
+    	if(!landingService.verification(userInfo)){ return "ErrorNoAccount"; }
+    	
+    	
 
     	return "UserPage"; 	
     } 

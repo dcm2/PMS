@@ -6,35 +6,21 @@
 <html lang="en">
 
     <head>
+    	<link rel="stylesheet" href="<c:url value="/css/main.css" />">
         <title>User Page</title>
     </head>
     <body>
 
-    <h1>User Page</h1>
-    <p>Here goes information about the user</p>
-    
+	<h1>Welcome ${userInfo.userName}</h1>
 
-  	 <c:choose>
-   		<c:when test="${not empty userInfo}">
-   			<p>Welcome ${userInfo.userName}</p>
+   	<c:choose>
+   		<c:when test="${not empty userInfo.playlists}">
+   			<p>your playlists are: ${userInfo.userName}</p>
    		</c:when>	
       	<c:otherwise>
-   			<p>Welcome ${newUserInfo.userName}</p>
+   			<p>you have no playlists yet :(. Look: ${userInfo.playlists}, see? I told you</p>
    		</c:otherwise>
    	</c:choose>
-
-    <table border="1px gray">
-        <thead>
-            <tr style="font-weight: 600;">
-                <td>Your Playlists</td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td></td>
-            </tr>
-        </tbody>
-    </table>
 
 
     </body>
