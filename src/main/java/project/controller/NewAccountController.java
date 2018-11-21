@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import project.persistence.entities.Playlist;
 import project.persistence.entities.User;
 import project.service.LandingService;
 
@@ -44,7 +45,7 @@ public class NewAccountController {
 	 * the attribute newUserInfo is the attribute that is mapped to the SIGN UP form (see: NewAccount.jsp)
 	 */ 
 
-    @RequestMapping(value="/newUserPage", method=RequestMethod.POST)
+    @RequestMapping(value="/newAccount", method=RequestMethod.POST)
     public String signUpPost(@ModelAttribute("newUserInfo") @Valid User newUserInfo, BindingResult result, Model model) {
     	
     	if(result.hasErrors()) {
@@ -63,6 +64,9 @@ public class NewAccountController {
 		
 		System.out.println(newUserInfo.toString());
 		
-    	return "NewUserPage"; 	
+		//adds a playlist to the model, so in the page NewUserPlaylist.jsp is ready to be populated with the title from the form
+		model.addAttribute("playlistToCreate", new Playlist());
+		
+    	return "NewUserPlaylists"; 	
     }
 }

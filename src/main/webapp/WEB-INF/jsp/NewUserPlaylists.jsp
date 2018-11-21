@@ -14,8 +14,8 @@
 
 	<h1>Welcome ${newUserInfo.userName}</h1>
 
-	<sf:form method="POST" modelAttribute="newUserInfo" action="/newUserPage">
-		<sf:input path="playlists" type="text" placeholder="title of the playlist"/>
+	<sf:form method="POST" modelAttribute="playlistToCreate" action="/newUserPlaylists">
+		<sf:input path="title" type="text" placeholder="title of the playlist"/>
 		<input type="submit" VALUE="CREATE"/>
 	</sf:form>
 

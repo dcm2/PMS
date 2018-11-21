@@ -20,9 +20,8 @@ import java.util.Set;
 
 @Entity
 public class User {
-	
-	@Id
-	@Column(name = "UserID")
+	@Id 
+	@Column(name = "UserID") 
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id;
 	
@@ -36,6 +35,7 @@ public class User {
 	@Size(min=8, max=15, message="Password must be between 8 and 20 characters long")
 	private String password;
 	
+	@NotNull
 	@Email(message = "Please enter a valid email")
 	private String email;
 	
@@ -55,6 +55,7 @@ public class User {
     }
     
     // Getters & setters
+
 	public Long getId() {
 		return id;
 	}

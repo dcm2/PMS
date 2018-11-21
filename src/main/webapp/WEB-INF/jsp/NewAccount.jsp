@@ -13,7 +13,7 @@
 	<h1>Create a new account</h1>
 
 	<%-- modelAttribute newUserInfo is added to the model in newAccountView() method from NewAccountController --%>
-    <sf:form method="POST" modelAttribute="newUserInfo" action="/newUserPage">
+    <sf:form method="POST" modelAttribute="newUserInfo" action="/newAccount">
     	<sf:errors path="userName" class="error"></sf:errors><br/>
 		<sf:input path="userName" type="text" placeholder="username"/><br/>
 		<sf:errors path="password" class="error"></sf:errors><br/>

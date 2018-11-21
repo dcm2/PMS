@@ -12,23 +12,24 @@ import javax.persistence.ManyToOne;
 
 
 
+
 @Entity
 public class Playlist {
 	
 	private Long id;
-	private String title;
-	
-	
-	private User creator;
-	
-	private char[] songList;
+	private String title;	
+	private User creator;	
 	private	int numSongs;
 	private int duration;
 	
+	/*@OneToMany(mappedBy = "belongsTo", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true) 
+	private Set<Song> songList = new HashSet<>();*/
+
 	
+	public Playlist(){
+	}
 	
-	// The empty constructor is not needed, we will always want to create Playlists with
-	// a title and the user that creates it
+	// To create Playlists with a title and the user that creates it
 	public Playlist(String title) {
 		this.title = title;
 	}
@@ -50,13 +51,14 @@ public class Playlist {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public char[] getSongList() {
+
+	/*public Set<Song> getSongList() {
 		return songList;
 	}
 
-	public void setSongList(char[] songList) {
+	public void setSongList(Set<Song> songList) {
 		this.songList = songList;
-	}
+	}*/
 
 	public int getNumSongs() {
 		return numSongs;
@@ -80,7 +82,5 @@ public class Playlist {
 	public void setCreator(User creator) {
 		this.creator = creator;
 	}
-
-
 	
 }

@@ -13,16 +13,19 @@ import javax.persistence.ManyToOne;
 public class Song {
 
 	private Long id;
-
 	private int votes;
 	private int upVotes;
 	private int downVotes;
+	
 	private Playlist belongsTo;
-	private SongInfo songInfo;
+	
+	
+	
+	
+	//private SongInfo songInfo;
 	
 	// Constructors
 	public Song() {
-		
 	}
 
 	// Getters and setters

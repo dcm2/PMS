@@ -1,7 +1,5 @@
 package project.service;
 
-import java.util.List;
-
 import project.persistence.entities.User;
 import project.beans.UserInfo;
 
