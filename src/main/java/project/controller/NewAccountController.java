@@ -72,6 +72,6 @@ public class NewAccountController {
 		
 		session.setAttribute("newUserInfo", newUserInfo);
 		
-    	return "NewUserPlaylists"; 	
+    	return "AccountCreated"; 	
     }
 }

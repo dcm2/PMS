@@ -86,8 +86,8 @@ public class User {
 		return playlists;
 	}
 
-	public void setPlaylists(Set<Playlist> playlists) {
-		this.playlists = playlists;
+	public void setPlaylists(Playlist playlist) {
+		this.playlists.add(playlist);
 	}
 
 	//for debugging purposes

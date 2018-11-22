@@ -42,15 +42,15 @@ public class PlaylistController {
 	
 	@RequestMapping(value="/newUserPlaylists", method=RequestMethod.POST)
 	public String newUserPlaylistsPost(@ModelAttribute("playlistToCreate") Playlist playlistToCreate, @SessionAttribute("newUserInfo") User currentUser, Model model) {
-		
+
 		System.out.println("playlist to save:" + playlistToCreate.getTitle());
+		System.out.println("Playlists that the user has right now: " + currentUser.getPlaylists());
 		
-		playlistService.save(playlistToCreate);
+		//playlistService.save(playlistToCreate);
 	
 		System.out.println("added to playlist from user: " + currentUser.getUserName());
 		
-		//Set<Playlist> pl = currentUser.getPlaylists();
-		//pl.add(playlistToCreate);
+		currentUser.setPlaylists(playlistToCreate);
 		
 		System.out.println("done!");
 		System.out.println(currentUser);
