@@ -46,7 +46,7 @@ public class PlaylistController {
 		System.out.println("playlist to save:" + playlistToCreate.getTitle());
 		System.out.println("Playlists that the user has right now: " + currentUser.getPlaylists());
 		
-		//playlistService.save(playlistToCreate);
+		playlistService.save(playlistToCreate);
 	
 		System.out.println("added to playlist from user: " + currentUser.getUserName());
 		
