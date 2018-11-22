@@ -1,14 +1,19 @@
 package project.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import project.persistence.entities.Playlist;
 import project.persistence.entities.User;
@@ -46,7 +51,7 @@ public class NewAccountController {
 	 */ 
 
     @RequestMapping(value="/newAccount", method=RequestMethod.POST)
-    public String signUpPost(@ModelAttribute("newUserInfo") @Valid User newUserInfo, BindingResult result, Model model) {
+    public String signUpPost(@ModelAttribute("newUserInfo") @Valid User newUserInfo, BindingResult result, Model model, HttpSession session) {
     	
     	if(result.hasErrors()) {
     		System.out.println("Form does not validate");
@@ -54,8 +59,6 @@ public class NewAccountController {
     	} else {
     		System.out.println("Form is valid");
     	}
-
-    	
     	
     	// saves the User from newUserInfo in the db 
     	//model.addAttribute("newUserInfo", new User());
@@ -66,6 +69,8 @@ public class NewAccountController {
 		
 		//adds a playlist to the model, so in the page NewUserPlaylist.jsp is ready to be populated with the title from the form
 		model.addAttribute("playlistToCreate", new Playlist());
+		
+		session.setAttribute("newUserInfo", newUserInfo);
 		
     	return "NewUserPlaylists"; 	
     }

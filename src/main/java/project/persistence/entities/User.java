@@ -14,6 +14,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import org.springframework.context.annotation.Scope;
+
 import java.util.HashSet;
 import java.util.Set;
 
