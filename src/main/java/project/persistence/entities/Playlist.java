@@ -15,8 +15,9 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Playlist {
-	
+
 	private Long id;
+	
 	private String title;	
 	private User creator;	
 	private	int numSongs;
@@ -30,9 +31,9 @@ public class Playlist {
 	}
 	
 	// To create Playlists with a title and the user that creates it
-	public Playlist(String title) {
-		this.title = title;
-	}
+	/*public Playlist(User creator) {
+		this.creator = creator;
+	}*/
 	
 	// All the getters & setters
 	@Id
@@ -82,5 +83,13 @@ public class Playlist {
 	public void setCreator(User creator) {
 		this.creator = creator;
 	}
+
+	@Override
+	public String toString() {
+		return "Playlist [id=" + id + ", title=" + title + ", creator=" + creator + ", numSongs=" + numSongs
+				+ ", duration=" + duration + "]";
+	}
+	
+	
 	
 }
