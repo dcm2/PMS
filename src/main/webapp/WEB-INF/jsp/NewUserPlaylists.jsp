@@ -26,7 +26,7 @@
 		
 			<c:forEach items="${sessionScope.newUserInfo.playlists}" var="playlist"> 
 			  <tr>
-			    <td> <p><a href= "/playlist/${playlist.title}"> ${playlist.title} </a> created by: </p><a href= "/users/${playlist.creator.userName}"> ${playlist.creator.userName} </a></td>
+			    <td><a href= "/playlist/${playlist.title}"> ${playlist.title}</a><span> created by: </span><a href= "/users/${playlist.creator.userName}"> ${playlist.creator.userName} </a></td>
 			  </tr>
 			</c:forEach>
 		
