@@ -23,21 +23,15 @@
    	<c:choose>
    		<%--If the newUserInfo that's on the model as an attribute has playlists--%>
    		<c:when test="${not empty sessionScope.newUserInfo.playlists}">
-   			<%--Create a table for the Postit Notes--%>
-            <table class="playlists">
-
-                <%--For each playlist, that's in the newUserInfo that was passed in the model--%>
-                <%--generate a row in the table--%>
-                <%--var="playlist" refers to a singular item out of the list `playlists`--%>
-                <c:forEach var="newUserInfo" items="${sessionScope.newUserInfo.playlists}">
-                    <tr>
-                        <%--We can reference attributes of the Entity by just entering the name we gave--%>
-                        <%--it in the singular item var, and then just a dot followed by the attribute name--%>
-                        <%--Create a link based on the name attribute value--%>
-                        <td><a href="/playlist/${sessionScope.newUserInfo.playlists}">${sessionScope.newUserInfo.playlists}</a></td>
-                    </tr>
-                </c:forEach>
-            </table>			
+		
+			<c:forEach items="${sessionScope.newUserInfo.playlists}" var="playlist"> 
+			  <tr>
+			    <td> <p><a href= "/playlist/${playlist.title}"> ${playlist.title} </a> created by: </p><a href= "/users/${playlist.creator.userName}"> ${playlist.creator.userName} </a></td>
+			  </tr>
+			</c:forEach>
+		
+		
+		
    		</c:when>	
       	<c:otherwise>
    			<p>You have no playlists yet :(</p>
