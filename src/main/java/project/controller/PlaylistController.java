@@ -1,6 +1,8 @@
 package project.controller;
 
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import javax.servlet.http.HttpSession;
@@ -44,24 +46,28 @@ public class PlaylistController {
 	@RequestMapping(value="/newUserPlaylists", method=RequestMethod.POST)
 	public String newUserPlaylistsPost(@ModelAttribute("playlistToCreate") Playlist playlistToCreate, @SessionAttribute("newUserInfo") User currentUser, Model model) {
 
-		System.out.println(playlistToCreate);
+		System.out.println("Playlist created with the title (get from the form): " + playlistToCreate);
 		
 		playlistToCreate.setCreator(currentUser);
 				
-		System.out.println(playlistToCreate);
-		
-		System.out.println("---------------->>---------------");
-		System.out.println("playlist to save:" + playlistToCreate.getTitle());
-		System.out.println("Playlists that the user has right now: " + currentUser.getPlaylists());
+		System.out.println("Playlist to store in the db (with Creator that is the current user in this session: " + playlistToCreate);
 		
 		playlistService.save(playlistToCreate);
-	
 		
+		System.out.println(playlistToCreate + " has been stored in the db");
+
+		System.out.println("---------------------------------");
+		
+		System.out.print("The user in this session is: " + currentUser);
+		System.out.println(". Playlists that the user has right now: " + currentUser.getPlaylists());
+		
+		// There's a problem HERE (while adding a Playlists into the List<Playlist> the User have
+		currentUser.addPlaylist(playlistToCreate);
+		
+		System.out.println(currentUser.getUserName() + " has right now the following playlists: " + currentUser.getPlaylists());
 		
 		System.out.println("done!");
-		System.out.println(currentUser);
-		System.out.println(playlistToCreate);
-		
+	
 		
 		return "NewUserPlaylists";
 	}

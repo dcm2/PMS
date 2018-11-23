@@ -14,10 +14,9 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-import org.springframework.context.annotation.Scope;
+import java.util.ArrayList;
+import java.util.List;
 
-import java.util.HashSet;
-import java.util.Set;
 
 
 @Entity
@@ -43,7 +42,7 @@ public class User {
 	
 	
 	@OneToMany(mappedBy = "creator", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true) 
-	private Set<Playlist> playlists = new HashSet<>();
+	private List<Playlist> playlists = new ArrayList<>();
 	
 	
     // Empty constructor: because we need to be able to create an empty User to add
@@ -82,19 +81,25 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Set<Playlist> getPlaylists() {
+	
+	public List<Playlist> getPlaylists() {
 		return playlists;
 	}
 
-	public void setPlaylists(Playlist playlist) {
-		this.playlists.add(playlist);
+	public void setPlaylists(List<Playlist> playlists) {
+		this.playlists = playlists;
 	}
+	
+	public void addPlaylist(Playlist playlistToInsert) {
+		playlists.add(playlistToInsert);
+	}
+	
 
 	//for debugging purposes
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", userName=" + userName + ", password=" + password + ", email=" + email
-				+ ", playlists=" + playlists + "]";
+				+ ", playlists="  + "]";
 	}
 
 }
