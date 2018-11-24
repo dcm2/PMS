@@ -71,6 +71,10 @@ public class PlaylistController {
 		
 		return "NewUserPlaylists";
 	}
-	
+	/*@RequestMapping(value="/playlist/{playlist.title}", method=RequestMethod.POST)
+	public String playlistDetails(@ModelAttribute("playlist"), Playlist playlist, @SessionAttribute("newUserInfo") User currentUser, Model model) {
+	    // retrieve user details from DB by username
+	    return "redirect:/playlists/" + playlist;
+	}*/
 	
 }

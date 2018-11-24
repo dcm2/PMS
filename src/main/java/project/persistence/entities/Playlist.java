@@ -1,6 +1,11 @@
 package project.persistence.entities;
 
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,8 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
-
+import javax.persistence.OneToMany;
 
 
 @Entity
@@ -22,10 +26,10 @@ public class Playlist {
 	private User creator;	
 	private	int numSongs;
 	private int duration;
+	//private List<Song> songList;
 	
-	/*@OneToMany(mappedBy = "belongsTo", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true) 
-	private Set<Song> songList = new HashSet<>();*/
-
+	 
+	private List<Song> songList = new ArrayList<>();
 	
 	public Playlist(){
 	}
@@ -52,14 +56,14 @@ public class Playlist {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
-	/*public Set<Song> getSongList() {
+	@OneToMany(mappedBy = "belongsTo", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	public List<Song> getSongList() {
 		return songList;
 	}
 
-	public void setSongList(Set<Song> songList) {
+	public void setSongList(List<Song> songList) {
 		this.songList = songList;
-	}*/
+	}
 
 	public int getNumSongs() {
 		return numSongs;
