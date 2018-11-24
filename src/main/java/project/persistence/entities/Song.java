@@ -1,4 +1,4 @@
-/*package project.persistence.entities;
+package project.persistence.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,14 +18,11 @@ public class Song {
 	private int downVotes;
 	
 	private Playlist belongsTo;
-	
-	
-	
-	
-	//private SongInfo songInfo;
+	private SongInfo songInfo;
 	
 	// Constructors
-	public Song() {
+	public Song(SongInfo songInfo) {
+		this.songInfo = songInfo;
 	}
 
 	// Getters and setters
@@ -84,4 +81,4 @@ public class Song {
 		this.songInfo = songInfo;
 	}
 	
-}*/
+}

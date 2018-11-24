@@ -1,4 +1,4 @@
-/*package project.persistence.entities;
+package project.persistence.entities;
 
 import java.util.List;
 
@@ -91,4 +91,4 @@ public class SongInfo {
 		this.usedBySong = usedBySong;
 	}
 	
-}*/
+}
