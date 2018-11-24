@@ -24,5 +24,5 @@ public class PlaylistServiceImplementation implements PlaylistService{
 	public Playlist save(Playlist playlist) {
 		return playlistRepo.save(playlist);
 	}
-
+	
 }
