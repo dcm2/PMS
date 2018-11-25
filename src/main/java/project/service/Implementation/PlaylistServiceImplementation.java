@@ -25,4 +25,9 @@ public class PlaylistServiceImplementation implements PlaylistService{
 		return playlistRepo.save(playlist);
 	}
 	
+	@Override
+	public Playlist findByTitle(String title) {
+		return playlistRepo.findByTitle(title);
+	}
+	
 }

@@ -6,4 +6,6 @@ public interface PlaylistService {
 
 	Playlist save(Playlist playlist);
 	
+	Playlist findByTitle(String title);
+	
 }

@@ -61,5 +61,10 @@ public class LandingServiceImplementation implements LandingService {
 		return false;
 	}
 	
+	@Override
+	public User findByName(String userName) {
+		return userRepo.findByName(userName);
+	}
+	
 	
 }

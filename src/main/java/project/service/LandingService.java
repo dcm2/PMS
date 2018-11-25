@@ -25,4 +25,6 @@ public interface LandingService {
 	//add a better comments :)
 	boolean verification(UserInfo userInfo);
 
+	// 
+	User findByName(String userName);
 }

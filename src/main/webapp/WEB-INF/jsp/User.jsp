@@ -1,0 +1,1 @@
+<p> here's a page to display info about the user: ${user.userName} </p>
