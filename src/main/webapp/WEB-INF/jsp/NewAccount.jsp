@@ -6,7 +6,7 @@
 
 <html lang="en">
     <head>
-    	<link rel="stylesheet" href="<c:url value="/css/main.css" />">
+    	<link rel="stylesheet" href="<c:url value="/css/newAccount.css" />">
         <title>PMS</title>
     </head>   
     <body>

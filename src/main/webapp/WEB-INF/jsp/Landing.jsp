@@ -7,7 +7,7 @@
 <html lang="en">
 
     <head>
-    	<link rel="stylesheet" href="<c:url value="/css/main.css" />">
+    	<link rel="stylesheet" href="<c:url value="/css/landing.css" />">
         <title>PMS</title>
     </head>   
     <body>
@@ -22,6 +22,6 @@
 		<input type="submit" VALUE="Log In"/>		
     </sf:form>
 
-	<p> If you are not registered <a href="/newAccount">CREATE A NEW ACCOUNT HERE</a></p>
+	<p> If you are not registered <br/> <a href="/newAccount">CREATE A NEW ACCOUNT HERE</a></p>
 
 </html>
