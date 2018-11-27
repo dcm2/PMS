@@ -87,7 +87,12 @@ public class Playlist {
 	public void setCreator(User creator) {
 		this.creator = creator;
 	}
-
+	
+	// This is to add a Song to a playlist
+	public void addSong(Song song) {
+		songList.add(song);
+	}
+	
 	@Override
 	public String toString() {
 		return "Playlist [id=" + id + ", title=" + title + ", creator=" + creator + ", numSongs=" + numSongs

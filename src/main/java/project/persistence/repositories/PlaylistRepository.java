@@ -10,7 +10,8 @@ public interface PlaylistRepository extends JpaRepository<Playlist, Long>{
 	Playlist save(Playlist playlist);
 	
 	// To find a particular playlist by title
-	@Query(value= "SELECT p.title FROM Playlist p WHERE p.title = ?1")
+	@Query(value= "SELECT p FROM Playlist p WHERE p.title = ?1")
 	Playlist findByTitle(String title);
+	
 	
 }
