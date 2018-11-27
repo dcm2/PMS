@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
+import project.beans.SearchInfo;
 import project.persistence.entities.Playlist;
 import project.persistence.entities.User;
 import project.service.LandingService;
@@ -62,7 +63,7 @@ public class PlaylistController {
 		System.out.print("The user in this session is: " + currentUser);
 		System.out.println(". Playlists that the user has right now: " + currentUser.getPlaylists());
 		
-		// There's a problem HERE (while adding a Playlists into the List<Playlist> the User have
+		
 		currentUser.addPlaylist(playlistToCreate);
 		
 		System.out.println(currentUser.getUserName() + " has right now the following playlists: " + currentUser.getPlaylists());
@@ -72,25 +73,13 @@ public class PlaylistController {
 		
 		return "NewUserPlaylists";
 	}
-	/*@RequestMapping(value="/playlist/{playlist.title}", method=RequestMethod.POST)
-	public String playlistDetails(@ModelAttribute("playlist"), Playlist playlist, @SessionAttribute("newUserInfo") User currentUser, Model model) {
-	    // retrieve user details from DB by username
-	    return "redirect:/playlists/" + playlist;
-	}*/
-	
-	@RequestMapping(value="/playlist/{title}", method = RequestMethod.GET)
-	public String playlistGetViewByName(@PathVariable String title, HttpSession session) {
-		
-		session.setAttribute("playlist", playlistService.findByTitle(title));
-		
-		
-		return "Playlist";
-	}
+
 	
 	@RequestMapping(value="/users/{userName}", method = RequestMethod.GET)
 	public String userGetViewFromName(@PathVariable String userName, Model model) {
 		model.addAttribute("user", landingService.findByName(userName));
 		return "User";
 	}
+	
 	
 }

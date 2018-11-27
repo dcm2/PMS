@@ -16,13 +16,18 @@ public class Song {
 	private int votes;
 	private int upVotes;
 	private int downVotes;
+	private String title;
 	
 	private Playlist belongsTo;
 	private SongInfo songInfo;
 	
+	public Song() {
+	}
+	
 	// Constructors
 	public Song(SongInfo songInfo) {
 		this.songInfo = songInfo;
+		this.title = songInfo.getTitle();
 	}
 
 	// Getters and setters
@@ -81,4 +86,20 @@ public class Song {
 		this.songInfo = songInfo;
 	}
 	
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	@Override
+	public String toString() {
+		return "Song [id=" + id + ", votes=" + votes + ", upVotes=" + upVotes + ", downVotes=" + downVotes + ", title="
+				+ title + ", belongsTo=" + belongsTo + ", songInfo=" + songInfo + "]";
+	}
+
+	
+		
 }

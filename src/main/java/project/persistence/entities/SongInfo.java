@@ -23,6 +23,10 @@ public class SongInfo {
 	private String genre;
 	private List<Song> usedBySong;
 	
+	public SongInfo() {	
+	}
+	
+	
 	// Constructor
 	public SongInfo(String title, String artist, int length, String album, String genre) {
 		this.title = title;
@@ -91,4 +95,15 @@ public class SongInfo {
 		this.usedBySong = usedBySong;
 	}
 	
+	/*public void addUsedBySong(Song song) {
+		usedBySong.add(song);
+	}*/
+
+	/*@Override
+	public String toString() {
+		return "SongInfo [id=" + id + ", title=" + title + ", artist=" + artist + ", length=" + length + ", album="
+				+ album + ", genre=" + genre + ", usedBySong=" + usedBySong + "]";
+	}*/
+	
+		
 }
