@@ -14,7 +14,7 @@
 	<h1>WELCOME TO PMS</h1>
 
     <%-- modelAttribute userInfo is added to the model in landingView() method from LandingController --%>
-    <sf:form method="POST" modelAttribute="userInfo" action="/userPlaylists"> 
+    <sf:form method="POST" modelAttribute="userInfo" action="/"> 
      	<sf:errors path="userName" class="error"></sf:errors><br/>   
 		<sf:input path="userName" type="text" placeholder="username"/><br/>
 		<sf:errors path="password" class="error"></sf:errors><br/>

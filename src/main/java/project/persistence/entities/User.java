@@ -50,9 +50,10 @@ public class User {
     public User() {
     }
 	
-    public User(String userName, String password) {
+    public User(String userName, String password, String email) {
         this.userName = userName;
         this.password = password;
+        this.email = email;
     }
     
     // Getters & setters

@@ -26,7 +26,10 @@
 		
 			<c:forEach items="${sessionScope.playlist.songList}" var="song"> 
 			  <tr>
-			    <td>${song.title} <button type="button">Upvote</button><button type="button">Downvote</button><br/></td>
+			    <td>${song.title} by
+			    ${song.songInfo.artist} &#8226; 
+			    ${song.votes} votes
+			    <button type="button">Upvote</button><button type="button">Downvote</button><br/></td>
 			  </tr>
 			</c:forEach>
 		
@@ -36,8 +39,18 @@
    		</c:otherwise>
    	</c:choose>
 
+   	<c:choose>		
+  		<c:when test="${sessionScope.sessionUser != null}">
+			<a href="/userPlaylists">return</a>	
+   		</c:when>	
+      	<c:otherwise>
+   			<a href="/newUserPlaylists">return</a>
+   		</c:otherwise>
+   	</c:choose>
 
-	<a href="/newUserPlaylists">return</a>
+
+
+	
 
     </body>
 
