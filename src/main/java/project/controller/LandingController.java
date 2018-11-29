@@ -1,5 +1,6 @@
 package project.controller;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import project.beans.UserInfo;
+import project.persistence.entities.Playlist;
 import project.persistence.entities.User;
 import project.service.LandingService;
 
@@ -47,14 +49,14 @@ public class LandingController {
 	 */ 
 
     @RequestMapping(value= "/", method=RequestMethod.POST)
-    public String logInPost(@ModelAttribute("userInfo") @Valid UserInfo userInfo,BindingResult result, Model model) {
+    public String logInPost(@ModelAttribute("userInfo") @Valid UserInfo userInfo, BindingResult result, Model model, HttpSession session) {
 
     	if(result.hasErrors()) {
     		System.out.println("Form does not validate");
     		return "Landing";
     	} else {
     		System.out.println("Form is valid and ready to check in the db info from UserInfo bean");
-    	}   	
+    	}	
     	
     	//burn after usign
     	System.out.println(landingService.verification(userInfo));
@@ -62,9 +64,17 @@ public class LandingController {
     	if(!landingService.verification(userInfo)){ return "ErrorNoAccount"; }
     	
     	
+    	User user = landingService.findByName(userInfo.getUserName());
+    	System.out.println("user to add to session: " + user);
+    	
+    	//adds a playlist to the model, so in the page UserPlaylist.jsp is ready to be populated with the title from the form
+    	model.addAttribute("playlistToCreate", new Playlist());
+    	
+    	session.setAttribute("sessionUser", user);
+    	
 
     	return "UserPlaylists"; 	
-    } 
+    }
    
     
 }

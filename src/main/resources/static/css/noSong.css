@@ -6,10 +6,6 @@ body {
 }
 
 p {
-	color: white;
-	font-size: xx-large;
-}
-a {
-	color: blueviolet;
-	text-decoration: none;
+    color: white;
+    font-size: xx-large;
 }

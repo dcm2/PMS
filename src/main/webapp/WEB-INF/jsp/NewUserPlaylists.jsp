@@ -7,19 +7,20 @@
 <html lang="en">
 
     <head>
-    	<link rel="stylesheet" href="<c:url value="/css/main.css" />">
+    	<link rel="stylesheet" href="<c:url value="/css/newUserPlaylists.css" />">
         <title>User Page</title>
     </head>
     <body>
 
 	<h1>Welcome <c:out value="${sessionScope.newUserInfo.userName}"/></h1>
-
+	<div class="large">
+	<div class="medium">
 	<sf:form method="POST" modelAttribute="playlistToCreate" action="/newUserPlaylists">
 		<sf:input path="title" type="text" placeholder="title of the playlist"/>
 		<input type="submit" VALUE="CREATE"/>
 	</sf:form>
-
-
+	</div>
+	<div class="small">
    	<c:choose>
    		<%--If the newUserInfo that's on the model as an attribute has playlists--%>
    		<c:when test="${not empty sessionScope.newUserInfo.playlists}">
@@ -40,7 +41,8 @@
    			<p>You have no playlists yet :(</p>
    		</c:otherwise>
    	</c:choose>
-
+   	</div>
+	</div>
 
     </body>
 

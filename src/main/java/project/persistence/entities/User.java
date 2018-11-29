@@ -27,7 +27,7 @@ public class User {
 	private Long id;
 	
 	@NotNull(message="Username cannot be empty")
-	@Size(min=5, max= 20, message="Username must be between 8 and 20 characters long")
+	@Size(min=5, max= 20, message="Username must be between 5 and 20 characters long")
 	@Pattern(regexp="^\\w{5,}$", message = "Username can only consist of alphanumeric characters")
 	private String userName;
 	
@@ -36,7 +36,7 @@ public class User {
 	@Size(min=8, max=15, message="Password must be between 8 and 20 characters long")
 	private String password;
 	
-	@NotNull
+	@NotNull(message="Email cannot be empty")
 	@Email(message = "Please enter a valid email")
 	private String email;
 	
@@ -50,9 +50,10 @@ public class User {
     public User() {
     }
 	
-    public User(String userName, String password) {
+    public User(String userName, String password, String email) {
         this.userName = userName;
         this.password = password;
+        this.email = email;
     }
     
     // Getters & setters

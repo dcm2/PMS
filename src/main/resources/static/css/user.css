@@ -12,31 +12,20 @@ h1 {
 	font-size: -webkit-xxx-large;
 }
 
-form {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: 25px 70px 30px 70px;
-	background: beige;
-	border-radius: 25px;
-	margin-bottom: 60px;
-	margin-top: 30px;
-}
-
 p {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	color: white;
 	font-size: larger;
 }
-
 a {
-    color: blueviolet;
-    text-decoration: none;
+	color: blueviolet;
+	text-decoration: none;
 }
 
-.error {
-	font-size:small;
-	color: red;
+.large {
+    background: beige;
+    padding: 40px 60px 500px 60px;
+    width: 40%;
+    border-radius: 25px;
 }
