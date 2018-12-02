@@ -47,40 +47,14 @@ public class PlaylistController2 {
 	
 	@RequestMapping(value="/userPlaylists", method=RequestMethod.POST)
 	public String newUserPlaylistsPost(@ModelAttribute("playlistToCreate") Playlist playlistToCreate, @SessionAttribute("newUserInfo") User currentUser, Model model) {
-		
-
-		System.out.println("Playlist created with the title (get from the form): " + playlistToCreate);
-		
-		playlistToCreate.setCreator(currentUser);
-				
-		System.out.println("Playlist to store in the db (with Creator that is the current user in this session: " + playlistToCreate);
+			
+		playlistToCreate.setCreator(currentUser);				
 		
 		playlistService.save(playlistToCreate);
-		
-		System.out.println(playlistToCreate + " has been stored in the db");
-
-		System.out.println("---------------------------------");
-		
-		System.out.print("The user in this session is: " + currentUser);
-		System.out.println(". Playlists that the user has right now: " + currentUser.getPlaylists());
-		
-		
+			
 		currentUser.addPlaylist(playlistToCreate);
-		
-		System.out.println(currentUser.getUserName() + " has right now the following playlists: " + currentUser.getPlaylists());
-		
-		System.out.println("done!");
-
 		
 		return "UserPlaylists";
 	}
-
-	
-	/*@RequestMapping(value="/users/{userName}", method = RequestMethod.GET)
-	public String userGetViewFromName(@PathVariable String userName, Model model) {
-		model.addAttribute("user", landingService.findByName(userName));
-		return "User";
-	}*/
-	
 	
 }

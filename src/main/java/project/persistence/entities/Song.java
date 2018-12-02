@@ -98,8 +98,5 @@ public class Song {
 	public String toString() {
 		return "Song [id=" + id + ", votes=" + votes + ", upVotes=" + upVotes + ", downVotes=" + downVotes + ", title="
 				+ title + ", belongsTo=" + belongsTo + ", songInfo=" + songInfo + "]";
-	}
-
-	
-		
+	}		
 }

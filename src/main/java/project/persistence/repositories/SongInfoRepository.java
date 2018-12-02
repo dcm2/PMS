@@ -7,6 +7,7 @@ import project.persistence.entities.SongInfo;
 
 public interface SongInfoRepository extends JpaRepository<SongInfo, Long>{
 
+	// To find a particular SongInfo by title
 	@Query(value= "SELECT p FROM SongInfo p WHERE p.title =?1")
 	SongInfo findByTitle(String titleToSearch);
 	

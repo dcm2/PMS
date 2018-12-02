@@ -22,8 +22,7 @@ public class LandingServiceImplementation implements LandingService {
 		this.userRepo = userRepo;
 	}
 	
-/* IMPLEMENTATION OF METHODS IN THE LandingService INTERFACE*/
-	
+	/* IMPLEMENTATION OF METHODS IN THE LandingService INTERFACE*/
 	@Override
 	public User save(User user) {
 		return userRepo.save(user);

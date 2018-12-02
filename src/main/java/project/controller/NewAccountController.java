@@ -60,9 +60,6 @@ public class NewAccountController {
     		System.out.println("Form is valid");
     	}
     	
-    	// saves the User from newUserInfo in the db 
-    	//model.addAttribute("newUserInfo", new User());
-    	
 		landingService.save(newUserInfo);
 		
 		System.out.println(newUserInfo.toString());

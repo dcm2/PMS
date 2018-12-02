@@ -26,18 +26,10 @@ public class Playlist {
 	private User creator;	
 	private	int numSongs;
 	private int duration;
-	//private List<Song> songList;
-	
-	 
 	private List<Song> songList = new ArrayList<>();
 	
 	public Playlist(){
 	}
-	
-	// To create Playlists with a title and the user that creates it
-	/*public Playlist(User creator) {
-		this.creator = creator;
-	}*/
 	
 	// All the getters & setters
 	@Id
@@ -98,7 +90,5 @@ public class Playlist {
 		return "Playlist [id=" + id + ", title=" + title + ", creator=" + creator + ", numSongs=" + numSongs
 				+ ", duration=" + duration + "]";
 	}
-	
-	
-	
+
 }

@@ -27,7 +27,7 @@ public class SongInfo {
 	}
 	
 	
-	// Constructor
+	// another constructor with parameters
 	public SongInfo(String title, String artist, int length, String album, String genre) {
 		this.title = title;
 		this.artist = artist;
@@ -93,17 +93,5 @@ public class SongInfo {
 
 	public void setUsedBySong(List<Song> usedBySong) {
 		this.usedBySong = usedBySong;
-	}
-	
-	/*public void addUsedBySong(Song song) {
-		usedBySong.add(song);
-	}*/
-
-	/*@Override
-	public String toString() {
-		return "SongInfo [id=" + id + ", title=" + title + ", artist=" + artist + ", length=" + length + ", album="
-				+ album + ", genre=" + genre + ", usedBySong=" + usedBySong + "]";
-	}*/
-	
-		
+	}		
 }

@@ -95,7 +95,6 @@ public class User {
 		playlists.add(playlistToInsert);
 	}
 	
-
 	//for debugging purposes
 	@Override
 	public String toString() {

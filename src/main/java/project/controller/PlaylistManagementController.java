@@ -49,38 +49,26 @@ public class PlaylistManagementController {
 	@RequestMapping(value="/playlist/{title}", method = RequestMethod.POST)
 	public String playlistManagementPost(@ModelAttribute("songInfoToAdd") SearchInfo songInfoToAdd, @SessionAttribute("playlist") Playlist currentPlaylist, Model model) {
 		
-		//System.out.println(resultSongToSearch.getSongToSearch());
-		
-		//
+
 		String searchTitle = songInfoToAdd.getSongToSearch();
 		
 		SongInfo resultSongInfo = songInfoService.findByTitle(searchTitle);
 		
 		if(resultSongInfo != null) {
 			Song songToAdd = new Song(resultSongInfo);
-
-			System.out.println(songToAdd.toString());
 			
-			songToAdd.setBelongsTo(currentPlaylist);
-			//System.out.println("2: " + songToAdd.toString());
-			
+			songToAdd.setBelongsTo(currentPlaylist);					
 			
 			//saves the Song into the db
 			songService.save(songToAdd);
 			//adds this song to the playlist
 			currentPlaylist.addSong(songToAdd);	
-			
-			System.out.println("toString Song to add: " + songToAdd.toString());
-			System.out.println("title of the song to add: " + songToAdd.toString());
-			
 		}
 		else {
 			return "NoSong";
 		}
-		
-		
+				
 		return "Playlist";
 	}
-	
-	
+		
 }

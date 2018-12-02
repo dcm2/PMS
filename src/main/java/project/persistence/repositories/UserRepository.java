@@ -8,8 +8,10 @@ import java.util.List;
 
 public interface UserRepository extends JpaRepository<User, Long>{
 
+	// Saves a User in the db
 	User save(User user);
 	
+	// Deletes a User from the db
 	void delete(User user);
 	
 	
