@@ -1,5 +1,4 @@
-# SpringBootMVC project - SOFTWARE PROJECT 1 
-Playlist Management System
+# PLAYLIST MANAGEMENT SYSTEM  - Software Project 1 
 
 ## How do I run this ?
 
