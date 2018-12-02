@@ -1,0 +1,31 @@
+body {
+	background: url(bakgr.jpg);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+h1 {
+	color: white;
+	margin-top: 100px;
+	margin-bottom: 100px;
+	font-size: -webkit-xxx-large;
+}
+
+p {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: larger;
+}
+a {
+	color: blueviolet;
+	text-decoration: none;
+}
+
+.large {
+    background: beige;
+    padding: 40px 60px 500px 60px;
+    width: 40%;
+    border-radius: 25px;
+}

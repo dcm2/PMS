@@ -7,12 +7,12 @@
 <html lang="en">
 
     <head>
-    	<link rel="stylesheet" href="<c:url value="/css/main.css" />">
+    	<link rel="stylesheet" href="<c:url value="/css/user.css" />">
         <title>User jsp page</title>
     </head>   
     <body>
     	<h1> Playlists from ${user.userName} </h1>
-    
+    	<div class="large">
 	  	<c:choose>		
 		  		<c:when test="${sessionScope.sessionUser != null}">
 		  		
@@ -42,7 +42,7 @@
 
 	   		</c:otherwise>
 	   	</c:choose>
-
+		</div>
 	</body>
 
 </html>

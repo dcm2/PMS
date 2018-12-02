@@ -7,7 +7,7 @@
 <html lang="en">
 
     <head>
-    	<link rel="stylesheet" href="<c:url value="/css/main.css" />">
+    	<link rel="stylesheet" href="<c:url value="/css/errorNoAccount.css" />">
         <title>AccountCreated</title>
     </head>   
     <body>

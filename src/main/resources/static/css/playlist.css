@@ -1,0 +1,50 @@
+.error {
+	font-size:small;
+	color: red;
+}
+
+body {
+	background: url(bakgr.jpg);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+h1 {
+	color: white;
+	margin-top: 100px;
+	font-size: -webkit-xxx-large;
+}
+
+form {
+	margin-bottom: 60px;
+	margin-top: 30px;
+}
+
+.medium {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+p {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: larger;
+}
+a {
+	color: blueviolet;
+	text-decoration: none;
+}
+
+.large {
+    background: beige;
+    padding: 0px 60px 500px 60px;
+    width: 40%;
+    border-radius: 25px;
+}
+
+.create {
+    color: white;
+}
